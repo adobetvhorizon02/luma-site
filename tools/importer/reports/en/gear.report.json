@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/gear",
+  "path": "en/gear",
+  "timestamp": "2026-10-23T12:44:18.449Z",
+  "title": "Gear",
+  "template": "eds-page",
+  "blocks": [
+    "hero",
+    "new-arrival",
+    "cards"
+  ]
+}

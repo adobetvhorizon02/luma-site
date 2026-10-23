@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/warming-up",
+  "path": "en/warming-up",
+  "timestamp": "2026-10-23T12:45:07.931Z",
+  "title": "Warming Up",
+  "template": "eds-page",
+  "blocks": [
+    "hero"
+  ]
+}
