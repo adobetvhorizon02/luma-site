@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/women",
+  "path": "en/women",
+  "timestamp": "2026-10-23T12:44:04.559Z",
+  "title": "Women",
+  "template": "eds-page",
+  "blocks": [
+    "hero",
+    "new-arrival",
+    "cards",
+    "cards"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/beginners-luck",
+  "path": "en/beginners-luck",
+  "timestamp": "2026-10-23T12:45:01.216Z",
+  "title": "Beginners Luck",
+  "template": "eds-page",
+  "blocks": [
+    "hero"
+  ]
+}

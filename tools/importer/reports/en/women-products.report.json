@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/women-products",
+  "path": "en/women-products",
+  "timestamp": "2026-10-23T12:44:32.955Z",
+  "title": "Women Products",
+  "template": "eds-page",
+  "blocks": [
+    "category-products-lister"
+  ]
+}
