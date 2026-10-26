@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/cart",
+  "path": "en/cart",
+  "timestamp": "2026-10-23T12:45:53.297Z",
+  "title": "Cart",
+  "template": "eds-page",
+  "blocks": [
+    "cart"
+  ]
+}

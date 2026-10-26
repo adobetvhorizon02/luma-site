@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/yoga-products",
+  "path": "en/yoga-products",
+  "timestamp": "2026-10-23T12:44:51.603Z",
+  "title": "Yoga Products",
+  "template": "eds-page",
+  "blocks": [
+    "category-products-lister"
+  ]
+}

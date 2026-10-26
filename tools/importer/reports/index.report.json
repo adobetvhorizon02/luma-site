@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/",
+  "path": "index",
+  "timestamp": "2026-10-23T12:43:46.625Z",
+  "title": "luma-site | Home",
+  "template": "eds-page",
+  "blocks": [
+    "hero",
+    "cards",
+    "cards feature-support",
+    "new-arrival",
+    "cards"
+  ]
+}

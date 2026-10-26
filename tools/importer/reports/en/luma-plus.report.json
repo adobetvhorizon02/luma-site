@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/luma-plus",
+  "path": "en/luma-plus",
+  "timestamp": "2026-10-23T12:45:18.136Z",
+  "title": "Luma+",
+  "template": "eds-page",
+  "blocks": [
+    "hero",
+    "hero",
+    "hero",
+    "join-us"
+  ]
+}
