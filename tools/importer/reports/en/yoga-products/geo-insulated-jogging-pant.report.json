@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP03",
+  "path": "en/yoga-products/geo-insulated-jogging-pant",
+  "timestamp": "2026-10-26T13:56:43.870Z",
+  "title": "Geo Insulated Jogging Pant",
+  "template": "product-page",
+  "productId": "MP03",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight, Lono Yoga Short",
+  "relatedUnlinked": ""
+}

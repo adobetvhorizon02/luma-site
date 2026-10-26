@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP05",
+  "path": "en/yoga-products/kratos-gym-pant",
+  "timestamp": "2026-10-26T13:56:51.888Z",
+  "title": "Kratos Gym Pant",
+  "template": "product-page",
+  "productId": "MP05",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight, Lono Yoga Short",
+  "relatedUnlinked": ""
+}

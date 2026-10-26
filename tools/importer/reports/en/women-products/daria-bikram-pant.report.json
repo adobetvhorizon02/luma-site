@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WP10",
+  "path": "en/women-products/daria-bikram-pant",
+  "timestamp": "2026-10-26T13:53:13.064Z",
+  "title": "Daria Bikram Pant",
+  "template": "product-page",
+  "productId": "WP10",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Ana Running Short, Cora Parachute Pant, Aeon Capri, Bardot Capri, Carina Basic Capri",
+  "relatedUnlinked": ""
+}

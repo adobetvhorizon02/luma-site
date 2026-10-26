@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WP04",
+  "path": "en/women-products/cora-parachute-pant",
+  "timestamp": "2026-10-26T13:52:40.998Z",
+  "title": "Cora Parachute Pant",
+  "template": "product-page",
+  "productId": "WP04",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Ana Running Short, Aeon Capri, Bardot Capri, Carina Basic Capri, Daria Bikram Pant",
+  "relatedUnlinked": ""
+}

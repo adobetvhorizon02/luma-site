@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WP08",
+  "path": "en/women-products/bardot-capri",
+  "timestamp": "2026-10-26T13:52:55.777Z",
+  "title": "Bardot Capri",
+  "template": "product-page",
+  "productId": "WP08",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Ana Running Short, Cora Parachute Pant, Aeon Capri, Carina Basic Capri, Daria Bikram Pant",
+  "relatedUnlinked": ""
+}

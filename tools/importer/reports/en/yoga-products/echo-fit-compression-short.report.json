@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WSH07",
+  "path": "en/yoga-products/echo-fit-compression-short",
+  "timestamp": "2026-10-26T13:58:35.337Z",
+  "title": "Echo Fit Compression Short",
+  "template": "product-page",
+  "productId": "WSH07",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight",
+  "relatedUnlinked": ""
+}

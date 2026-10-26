@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP04",
+  "path": "en/men-products/supernova-sport-pant",
+  "timestamp": "2026-10-26T13:54:35.140Z",
+  "title": "Supernova Sport Pant",
+  "template": "product-page",
+  "productId": "MP04",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Caesar Warm-Up Pant, Viktor LumaTech™ Pant, Viktor LumaTech™ Pant, Orestes Yoga Pant, Aether Gym Pant",
+  "relatedUnlinked": ""
+}

@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "luma-site": {
+      "previewOrg": "adobetvhorizon02",
+      "previewSite": "luma-site",
+      "contentHostUrl": "https://content.da.live/adobetvhorizon02/luma-site/"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=24-WG09",
+  "path": "en/gear-products/luma-analog-watch",
+  "timestamp": "2026-10-26T13:56:36.600Z",
+  "title": "Luma Analog Watch",
+  "template": "product-page",
+  "productId": "24-WG09",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Affirm Water Bottle",
+  "relatedUnlinked": ""
+}

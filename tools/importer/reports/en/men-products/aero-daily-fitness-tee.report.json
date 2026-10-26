@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MS01",
+  "path": "en/men-products/aero-daily-fitness-tee",
+  "timestamp": "2026-10-26T13:55:08.650Z",
+  "title": "Aero Daily Fitness Tee",
+  "template": "product-page",
+  "productId": "MS01",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Hero Hoodie, Marco Lightweight Active Hoodie, Taurus Elements Shell, Tristan Endurance Tank",
+  "relatedUnlinked": ""
+}

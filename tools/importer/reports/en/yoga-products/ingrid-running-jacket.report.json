@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WJ04",
+  "path": "en/yoga-products/ingrid-running-jacket",
+  "timestamp": "2026-10-26T13:57:52.137Z",
+  "title": "Ingrid Running Jacket",
+  "template": "product-page",
+  "productId": "WJ04",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight",
+  "relatedUnlinked": ""
+}

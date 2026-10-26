@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WS06",
+  "path": "en/yoga-products/elisa-evercool-tee",
+  "timestamp": "2026-10-26T13:58:21.072Z",
+  "title": "Elisa EverCool™ Tee",
+  "template": "product-page",
+  "productId": "WS06",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight",
+  "relatedUnlinked": ""
+}

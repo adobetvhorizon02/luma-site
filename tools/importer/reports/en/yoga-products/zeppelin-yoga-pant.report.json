@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP08",
+  "path": "en/yoga-products/zeppelin-yoga-pant",
+  "timestamp": "2026-10-26T13:57:10.638Z",
+  "title": "Zeppelin Yoga Pant",
+  "template": "product-page",
+  "productId": "MP08",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Livingston All-Purpose Tight, Lono Yoga Short",
+  "relatedUnlinked": ""
+}

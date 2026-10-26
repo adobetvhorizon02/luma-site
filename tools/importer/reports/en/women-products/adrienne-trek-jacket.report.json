@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WJ08",
+  "path": "en/women-products/adrienne-trek-jacket",
+  "timestamp": "2026-10-26T13:52:32.212Z",
+  "title": "Adrienne Trek Jacket",
+  "template": "product-page",
+  "productId": "WJ08",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "",
+  "relatedUnlinked": ""
+}

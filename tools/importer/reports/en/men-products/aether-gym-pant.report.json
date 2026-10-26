@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP11",
+  "path": "en/men-products/aether-gym-pant",
+  "timestamp": "2026-10-26T13:54:52.159Z",
+  "title": "Aether Gym Pant",
+  "template": "product-page",
+  "productId": "MP11",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Caesar Warm-Up Pant, Viktor LumaTech™ Pant, Viktor LumaTech™ Pant, Supernova Sport Pant, Orestes Yoga Pant",
+  "relatedUnlinked": ""
+}

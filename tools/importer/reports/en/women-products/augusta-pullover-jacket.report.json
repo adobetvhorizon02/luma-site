@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WJ03",
+  "path": "en/women-products/augusta-pullover-jacket",
+  "timestamp": "2026-10-26T13:52:24.203Z",
+  "title": "Augusta Pullover Jacket",
+  "template": "product-page",
+  "productId": "WJ03",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "",
+  "relatedUnlinked": ""
+}

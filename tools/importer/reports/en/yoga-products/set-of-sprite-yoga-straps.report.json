@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WG03",
+  "path": "en/yoga-products/set-of-sprite-yoga-straps",
+  "timestamp": "2026-10-26T13:57:31.976Z",
+  "title": "Set of Sprite Yoga Straps",
+  "template": "product-page",
+  "productId": "WG03",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Affirm Water Bottle",
+  "relatedUnlinked": ""
+}

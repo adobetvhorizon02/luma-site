@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=24-UG06",
+  "path": "en/gear-products/affirm-water-bottle",
+  "timestamp": "2026-10-26T13:56:06.262Z",
+  "title": "Affirm Water Bottle",
+  "template": "product-page",
+  "productId": "24-UG06",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Bolo Sport Watch",
+  "relatedUnlinked": ""
+}

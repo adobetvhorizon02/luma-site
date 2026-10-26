@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MJ09",
+  "path": "en/men-products/taurus-elements-shell",
+  "timestamp": "2026-10-26T13:54:13.001Z",
+  "title": "Taurus Elements Shell",
+  "template": "product-page",
+  "productId": "MJ09",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Hero Hoodie, Marco Lightweight Active Hoodie, Aero Daily Fitness Tee, Tristan Endurance Tank",
+  "relatedUnlinked": ""
+}
