@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WSH10",
+  "path": "en/women-products/ana-running-short",
+  "timestamp": "2026-10-26T13:52:16.000Z",
+  "title": "Ana Running Short",
+  "template": "product-page",
+  "productId": "WSH10",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Cora Parachute Pant, Aeon Capri, Bardot Capri, Carina Basic Capri, Daria Bikram Pant",
+  "relatedUnlinked": ""
+}

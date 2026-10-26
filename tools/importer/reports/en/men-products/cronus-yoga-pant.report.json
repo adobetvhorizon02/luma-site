@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP12",
+  "path": "en/men-products/cronus-yoga-pant",
+  "timestamp": "2026-10-26T13:55:00.237Z",
+  "title": "Cronus Yoga Pant",
+  "template": "product-page",
+  "productId": "MP12",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Caesar Warm-Up Pant, Viktor LumaTech™ Pant, Viktor LumaTech™ Pant, Supernova Sport Pant, Orestes Yoga Pant",
+  "relatedUnlinked": ""
+}

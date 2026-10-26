@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WSH05",
+  "path": "en/women-products/bess-yoga-short",
+  "timestamp": "2026-10-26T13:53:39.515Z",
+  "title": "Bess Yoga Short",
+  "template": "product-page",
+  "productId": "WSH05",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Ana Running Short, Cora Parachute Pant, Aeon Capri, Bardot Capri, Carina Basic Capri",
+  "relatedUnlinked": ""
+}

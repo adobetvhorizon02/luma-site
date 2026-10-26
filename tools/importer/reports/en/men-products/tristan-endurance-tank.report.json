@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MT02",
+  "path": "en/men-products/tristan-endurance-tank",
+  "timestamp": "2026-10-26T13:55:23.677Z",
+  "title": "Tristan Endurance Tank",
+  "template": "product-page",
+  "productId": "MT02",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Hero Hoodie, Marco Lightweight Active Hoodie, Taurus Elements Shell, Aero Daily Fitness Tee",
+  "relatedUnlinked": ""
+}

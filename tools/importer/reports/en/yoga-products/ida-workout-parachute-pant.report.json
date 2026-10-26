@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WP03",
+  "path": "en/yoga-products/ida-workout-parachute-pant",
+  "timestamp": "2026-10-26T13:58:13.490Z",
+  "title": "Ida Workout Parachute Pant",
+  "template": "product-page",
+  "productId": "WP03",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight",
+  "relatedUnlinked": ""
+}

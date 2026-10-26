@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP10",
+  "path": "en/men-products/orestes-yoga-pant",
+  "timestamp": "2026-10-26T13:54:43.904Z",
+  "title": "Orestes Yoga Pant",
+  "template": "product-page",
+  "productId": "MP10",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Caesar Warm-Up Pant, Viktor LumaTech™ Pant, Viktor LumaTech™ Pant, Supernova Sport Pant, Aether Gym Pant",
+  "relatedUnlinked": ""
+}

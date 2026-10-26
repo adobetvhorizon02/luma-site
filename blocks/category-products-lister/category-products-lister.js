@@ -1,12 +1,17 @@
-import { readBlockConfig, createLumaProductImagePicture, fetchPlaceholders } from "../../scripts/aem.js";
-import { isAuthorEnvironment, normalizeAemPath, normalizeCategoryValue } from "../../scripts/scripts.js";
-import { dispatchCustomEvent } from "../../scripts/custom-events.js";
+import {
+  readBlockConfig, createLumaProductImagePicture, fetchPlaceholders, toClassName,
+} from '../../scripts/aem.js';
+import { isAuthorEnvironment, normalizeAemPath, normalizeCategoryValue } from '../../scripts/scripts.js';
+import { dispatchCustomEvent } from '../../scripts/custom-events.js';
 import {
   getEnvironmentValue,
   getHostname,
 } from '../../scripts/utils.js';
 
-const PUBLISH_GRAPHQL_PROXY_ENDPOINT = "https://275323-918sangriatortoise.adobeioruntime.net/api/v1/web/dx-excshell-1/fetch-product-information";
+// _dynamicUrl / _publishUrl / _authorUrl are AEM GraphQL image reference fields
+/* eslint-disable no-underscore-dangle */
+
+const PUBLISH_GRAPHQL_PROXY_ENDPOINT = 'https://275323-918sangriatortoise.adobeioruntime.net/api/v1/web/dx-excshell-1/fetch-product-information';
 const AUTHOR_GRAPHQL_BASE = '/graphql/execute.json/dsn-eds-configuration/';
 const DEFAULT_GRAPHQL_QUERY_NAME = 'productsListByPath';
 
@@ -23,8 +28,8 @@ let categoryProductsPublishEnvironmentPromise;
 async function getCategoryProductsAuthorBase() {
   if (!categoryProductsAuthorBasePromise) {
     categoryProductsAuthorBasePromise = getHostname()
-      .then((hostname) => (hostname || window.location.origin || "").replace(/\/$/, ""))
-      .catch(() => (window.location.origin || "").replace(/\/$/, ""));
+      .then((hostname) => (hostname || window.location.origin || '').replace(/\/$/, ''))
+      .catch(() => (window.location.origin || '').replace(/\/$/, ''));
   }
   return categoryProductsAuthorBasePromise;
 }
@@ -44,17 +49,17 @@ function coerceConfigScalar(v) {
 
 function getDefaultProductDetailPath(isAuthor) {
   const currentPath = window.location.pathname;
-  const basePath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+  const basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
   return isAuthor ? `${basePath}/product.html` : `${basePath}/product`;
 }
 
 function normalizeRedirectUrl(url) {
   const redirectUrl = coerceConfigScalar(url);
-  if (!redirectUrl) return "";
+  if (!redirectUrl) return '';
   if (/^https?:\/\//i.test(redirectUrl)) {
     try {
       const parsedUrl = new URL(redirectUrl);
-      if (!parsedUrl.pathname.startsWith("/content/")) return redirectUrl;
+      if (!parsedUrl.pathname.startsWith('/content/')) return redirectUrl;
     } catch (e) {
       return redirectUrl;
     }
@@ -63,59 +68,70 @@ function normalizeRedirectUrl(url) {
 }
 
 function appendProductId(url, productId) {
-  if (!url || !productId) return "#";
-  const [baseUrl, hash] = url.split("#");
-  const separator = baseUrl.includes("?") ? "&" : "?";
-  return `${baseUrl}${separator}productId=${encodeURIComponent(productId)}${hash ? `#${hash}` : ""}`;
+  if (!url || !productId) return '#';
+  const [baseUrl, hash] = url.split('#');
+  const separator = baseUrl.includes('?') ? '&' : '?';
+  return `${baseUrl}${separator}productId=${encodeURIComponent(productId)}${hash ? `#${hash}` : ''}`;
 }
 
-function buildProductUrl(item, isAuthor, redirectUrl = "") {
-  const productId = item?.sku || item?.id || "";
-  if (!productId) return "#";
+/**
+ * @param {Object} links
+ * @param {string} [links.redirectUrl] product detail page that takes ?productId=
+ * @param {string} [links.productPagesPath] folder of static product pages,
+ *   linked as <productPagesPath>/<product-name>; takes precedence over redirectUrl
+ */
+function buildProductUrl(item, isAuthor, { redirectUrl = '', productPagesPath = '' } = {}) {
+  const productId = item?.sku || item?.id || '';
+  if (!productId) return '#';
+  if (productPagesPath && item?.name) {
+    return `${productPagesPath}/${toClassName(item.name)}${isAuthor ? '.html' : ''}`;
+  }
   return appendProductId(redirectUrl || getDefaultProductDetailPath(isAuthor), productId);
 }
 
-function buildCard(item, isAuthor, redirectUrl = "", enableAddToCart = false, addToCartEventType = '') {
-  const { id, sku, name, damImageURL, image, category = [], price, description = {} } = item || {};
+function buildCard(item, isAuthor, links = {}, enableAddToCart = false, addToCartEventType = '') {
+  const {
+    id, sku, name, damImageURL, image, category = [], price, description = {},
+  } = item || {};
   const imgData = damImageURL || image || {};
-  const productId = sku || id || "";
+  const productId = sku || id || '';
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "cpl-card-wrapper";
+  const wrapper = document.createElement('div');
+  wrapper.className = 'cpl-card-wrapper';
 
-  const card = document.createElement("article");
-  card.className = "cpl-card";
+  const card = document.createElement('article');
+  card.className = 'cpl-card';
 
   if (productId) {
-    card.style.cursor = "pointer";
-    card.addEventListener("click", () => {
-      window.location.href = buildProductUrl(item, isAuthor, redirectUrl);
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      window.location.href = buildProductUrl(item, isAuthor, links);
     });
   }
 
   let picture = null;
   if (imgData && (imgData._dynamicUrl || imgData._publishUrl || imgData._authorUrl)) {
-    picture = createLumaProductImagePicture(imgData, name || "Product image", {
+    picture = createLumaProductImagePicture(imgData, name || 'Product image', {
       isAuthor,
       eager: false,
     });
   }
 
-  const imgWrap = document.createElement("div");
-  imgWrap.className = "cpl-card-media";
+  const imgWrap = document.createElement('div');
+  imgWrap.className = 'cpl-card-media';
   if (picture) imgWrap.append(picture);
 
-  const meta = document.createElement("div");
-  meta.className = "cpl-card-meta";
-  const cat = document.createElement("p");
-  cat.className = "cpl-card-category";
+  const meta = document.createElement('div');
+  meta.className = 'cpl-card-meta';
+  const cat = document.createElement('p');
+  cat.className = 'cpl-card-category';
   cat.textContent = category
-    .map((catValue) => normalizeCategoryValue(catValue).replace(/\//g, " / "))
+    .map((catValue) => normalizeCategoryValue(catValue).replace(/\//g, ' / '))
     .filter(Boolean)
-    .join(" / ");
-  const title = document.createElement("h3");
-  title.className = "cpl-card-title";
-  title.textContent = name || "";
+    .join(' / ');
+  const title = document.createElement('h3');
+  title.className = 'cpl-card-title';
+  title.textContent = name || '';
   meta.append(cat, title);
 
   card.append(imgWrap, meta);
@@ -123,31 +139,31 @@ function buildCard(item, isAuthor, redirectUrl = "", enableAddToCart = false, ad
 
   if (enableAddToCart && productId) {
     const formattedCategory = category
-      .map((catValue) => normalizeCategoryValue(catValue).replace(/\//g, " / "))
-      .join(", ");
+      .map((catValue) => normalizeCategoryValue(catValue).replace(/\//g, ' / '))
+      .join(', ');
     const cartImageUrl = isAuthor ? imgData?._authorUrl : imgData?._publishUrl;
 
-    const addToCartBtn = document.createElement("button");
-    addToCartBtn.className = "cpl-card-add-to-cart";
-    addToCartBtn.textContent = "Add to Cart";
-    addToCartBtn.setAttribute("aria-label", `Add ${name} to cart`);
-    addToCartBtn.addEventListener("click", () => {
+    const addToCartBtn = document.createElement('button');
+    addToCartBtn.className = 'cpl-card-add-to-cart';
+    addToCartBtn.textContent = 'Add to Cart';
+    addToCartBtn.setAttribute('aria-label', `Add ${name} to cart`);
+    addToCartBtn.addEventListener('click', () => {
       window.addToCart({
-        id: id || sku || "",
-        name: name || "",
-        image: cartImageUrl || "",
-        thumbnail: cartImageUrl || "",
+        id: id || sku || '',
+        name: name || '',
+        image: cartImageUrl || '',
+        thumbnail: cartImageUrl || '',
         category: formattedCategory,
-        description: description?.html || description?.markdown || "",
+        description: description?.html || description?.markdown || '',
         price: price || 0,
         quantity: 1,
       });
       if (addToCartEventType) dispatchCustomEvent(addToCartEventType);
-      addToCartBtn.textContent = "Added to Cart ✓";
-      addToCartBtn.classList.add("cpl-card-add-to-cart--added");
+      addToCartBtn.textContent = 'Added to Cart ✓';
+      addToCartBtn.classList.add('cpl-card-add-to-cart--added');
       setTimeout(() => {
-        addToCartBtn.textContent = "Add to Cart";
-        addToCartBtn.classList.remove("cpl-card-add-to-cart--added");
+        addToCartBtn.textContent = 'Add to Cart';
+        addToCartBtn.classList.remove('cpl-card-add-to-cart--added');
       }, 2000);
     });
     wrapper.append(addToCartBtn);
@@ -181,7 +197,7 @@ async function fetchProducts(path) {
     return json?.data?.binjiProductModelList?.items ?? json?.data?.productModelList?.items ?? [];
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.error("Category Products Lister: fetch error", e);
+    console.error('Category Products Lister: fetch error', e);
     return [];
   }
 }
@@ -193,25 +209,25 @@ function filterByCategories(items, tags) {
     .filter(Boolean);
   if (!filterList.length) return items;
   return items.filter((item) => {
-    let categoryTags = item.category?.length && Array.isArray(item.category) ? item.category : []; 
+    let categoryTags = item.category?.length && Array.isArray(item.category) ? item.category : [];
 
     if (item.shortCategory?.length && Array.isArray(item.shortCategory)) {
-      categoryTags = [...categoryTags, item.shortCategory]
+      categoryTags = [...categoryTags, item.shortCategory];
     }
 
     if (item.tags?.length && Array.isArray(item.tags)) {
-      categoryTags = [...categoryTags, item.tags]
+      categoryTags = [...categoryTags, item.tags];
     }
 
     return (categoryTags).some((cat) => {
       const normalized = normalizeCategoryValue(cat).toLowerCase();
       return filterList.some((tag) => normalized.includes(tag) || tag.includes(normalized));
-    })
+    });
   });
 }
 
-function readCardsPerRow(cfg, block) {
-  const raw = coerceConfigScalar(cfg?.["cards-per-row"]);
+function readCardsPerRow(cfg) {
+  const raw = coerceConfigScalar(cfg?.['cards-per-row']);
   const n = parseInt(raw, 10);
   if (!Number.isFinite(n) || n < 1) return 5;
   return Math.min(6, Math.max(1, n));
@@ -219,63 +235,63 @@ function readCardsPerRow(cfg, block) {
 
 function renderHeader(container, selectedTags) {
   if (!selectedTags || selectedTags.length === 0) return;
-  const wrap = document.createElement("div");
-  wrap.className = "cpl-tags";
+  const wrap = document.createElement('div');
+  wrap.className = 'cpl-tags';
   const list = Array.isArray(selectedTags)
     ? selectedTags
-    : `${selectedTags}`.split(",");
+    : `${selectedTags}`.split(',');
   list
     .map((t) => `${t}`.trim())
     .filter(Boolean)
     .forEach((tag) => {
-      const chip = document.createElement("span");
-      chip.className = "cpl-tag";
+      const chip = document.createElement('span');
+      chip.className = 'cpl-tag';
       chip.textContent = tag;
       wrap.append(chip);
     });
   container.append(wrap);
 }
 
-function renderCarousel(block, items, cfg, isAuthor, redirectUrl = "") {
-  const heading = coerceConfigScalar(cfg?.["heading"] || cfg?.["block-title"]);
-  const learnMoreLabel = coerceConfigScalar(cfg?.["learn-more-label"]) || "Learn more";
+function renderCarousel(block, items, cfg, isAuthor, links = {}) {
+  const heading = coerceConfigScalar(cfg?.heading || cfg?.['block-title']);
+  const learnMoreLabel = coerceConfigScalar(cfg?.['learn-more-label']) || 'Learn more';
 
-  const carousel = document.createElement("div");
-  carousel.className = "cpl-carousel";
+  const carousel = document.createElement('div');
+  carousel.className = 'cpl-carousel';
 
   if (heading) {
-    const hdr = document.createElement("div");
-    hdr.className = "cpl-carousel-header";
-    const h2 = document.createElement("h2");
+    const hdr = document.createElement('div');
+    hdr.className = 'cpl-carousel-header';
+    const h2 = document.createElement('h2');
     h2.textContent = heading;
     hdr.append(h2);
     carousel.append(hdr);
   }
 
-  const stage = document.createElement("div");
-  stage.className = "cpl-carousel-stage";
+  const stage = document.createElement('div');
+  stage.className = 'cpl-carousel-stage';
 
-  const prevBtn = document.createElement("button");
-  prevBtn.type = "button";
-  prevBtn.className = "cpl-carousel-btn cpl-carousel-btn--prev";
-  prevBtn.setAttribute("aria-label", "Previous");
-  const nextBtn = document.createElement("button");
-  nextBtn.type = "button";
-  nextBtn.className = "cpl-carousel-btn cpl-carousel-btn--next";
-  nextBtn.setAttribute("aria-label", "Next");
+  const prevBtn = document.createElement('button');
+  prevBtn.type = 'button';
+  prevBtn.className = 'cpl-carousel-btn cpl-carousel-btn--prev';
+  prevBtn.setAttribute('aria-label', 'Previous');
+  const nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.className = 'cpl-carousel-btn cpl-carousel-btn--next';
+  nextBtn.setAttribute('aria-label', 'Next');
 
-  const track = document.createElement("div");
-  track.className = "cpl-carousel-track";
+  const track = document.createElement('div');
+  track.className = 'cpl-carousel-track';
 
   items.forEach((item, i) => {
     const { damImageURL, image: itemImage } = item || {};
     const imgData = damImageURL || itemImage || {};
-    const slide = document.createElement("div");
-    slide.className = "cpl-carousel-slide";
-    if (i === 0) slide.classList.add("active");
+    const slide = document.createElement('div');
+    slide.className = 'cpl-carousel-slide';
+    if (i === 0) slide.classList.add('active');
 
     if (imgData && (imgData._publishUrl || imgData._authorUrl || imgData._dynamicUrl)) {
-      const picture = createLumaProductImagePicture(imgData, item.name || "Product image", {
+      const picture = createLumaProductImagePicture(imgData, item.name || 'Product image', {
         isAuthor,
         eager: i === 0,
       });
@@ -287,18 +303,18 @@ function renderCarousel(block, items, cfg, isAuthor, redirectUrl = "") {
   stage.append(prevBtn, track, nextBtn);
   carousel.append(stage);
 
-  const meta = document.createElement("div");
-  meta.className = "cpl-carousel-meta";
+  const meta = document.createElement('div');
+  meta.className = 'cpl-carousel-meta';
 
-  const nameEl = document.createElement("h3");
-  nameEl.className = "cpl-carousel-name";
-  nameEl.textContent = items[0]?.name || "";
+  const nameEl = document.createElement('h3');
+  nameEl.className = 'cpl-carousel-name';
+  nameEl.textContent = items[0]?.name || '';
 
-  const learnMoreBtn = document.createElement("a");
-  learnMoreBtn.className = "cpl-carousel-learn-more button";
+  const learnMoreBtn = document.createElement('a');
+  learnMoreBtn.className = 'cpl-carousel-learn-more button';
   learnMoreBtn.textContent = learnMoreLabel;
 
-  learnMoreBtn.href = buildProductUrl(items[0], isAuthor, redirectUrl);
+  learnMoreBtn.href = buildProductUrl(items[0], isAuthor, links);
 
   meta.append(nameEl, learnMoreBtn);
   carousel.append(meta);
@@ -308,16 +324,16 @@ function renderCarousel(block, items, cfg, isAuthor, redirectUrl = "") {
   let current = 0;
 
   function goTo(index) {
-    const slides = track.querySelectorAll(".cpl-carousel-slide");
-    slides[current].classList.remove("active");
+    const slides = track.querySelectorAll('.cpl-carousel-slide');
+    slides[current].classList.remove('active');
     current = (index + items.length) % items.length;
-    slides[current].classList.add("active");
-    nameEl.textContent = items[current]?.name || "";
-    learnMoreBtn.href = buildProductUrl(items[current], isAuthor, redirectUrl);
+    slides[current].classList.add('active');
+    nameEl.textContent = items[current]?.name || '';
+    learnMoreBtn.href = buildProductUrl(items[current], isAuthor, links);
   }
 
-  prevBtn.addEventListener("click", () => goTo(current - 1));
-  nextBtn.addEventListener("click", () => goTo(current + 1));
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
 }
 
 export default async function decorate(block) {
@@ -325,30 +341,40 @@ export default async function decorate(block) {
   const isAuthor = isAuthorEnvironment();
   const cfg = readBlockConfig(block) || {};
 
-  const rawRedirectUrl = cfg?.["redirect-url"] || cfg?.redirecturl || cfg?.redirectUrl;
+  const rawRedirectUrl = cfg?.['redirect-url'] || cfg?.redirecturl || cfg?.redirectUrl;
   const redirectUrl = normalizeRedirectUrl(rawRedirectUrl);
+
+  // Folder of static product pages (e.g. /en/men-products); cards link to <folder>/<product-name>
+  let productPagesPath = coerceConfigScalar(cfg?.['product-pages']);
+  try {
+    if (/^https?:\/\//i.test(productPagesPath)) productPagesPath = new URL(productPagesPath).pathname;
+  } catch (e) {
+    /* ignore */
+  }
+  productPagesPath = productPagesPath.replace(/\.html$/, '').replace(/\/$/, '');
+  const links = { redirectUrl, productPagesPath };
 
   // Prefer the authored folder field; fall back to legacy link-only markup.
   let folderHref = cfg?.folder
     || cfg?.reference
     || cfg?.path
-    || "";
+    || '';
 
   if (!folderHref && !rawRedirectUrl) {
-    folderHref = block.querySelector("a[href]")?.href
-      || block.querySelector("a[href]")?.textContent?.trim()
-      || "";
+    folderHref = block.querySelector('a[href]')?.href
+      || block.querySelector('a[href]')?.textContent?.trim()
+      || '';
   }
 
   const styleVariant = coerceConfigScalar(cfg?.style);
   if (styleVariant) block.classList.add(styleVariant);
 
-  const noBackground = coerceConfigScalar(cfg?.["no-background"]);
-  if (noBackground === "true") block.classList.add("no-background");
+  const noBackground = coerceConfigScalar(cfg?.['no-background']);
+  if (noBackground === 'true') block.classList.add('no-background');
 
   // Normalize folder path to pathname if an absolute URL is provided
   try {
-    if (folderHref && folderHref.startsWith("http")) {
+    if (folderHref && folderHref.startsWith('http')) {
       const u = new URL(folderHref);
       folderHref = u.pathname;
     }
@@ -357,64 +383,64 @@ export default async function decorate(block) {
   }
 
   // Remove .html extension if present (Universal Editor adds it)
-  if (folderHref && folderHref.endsWith(".html")) {
-    folderHref = folderHref.replace(/\.html$/, "");
+  if (folderHref && folderHref.endsWith('.html')) {
+    folderHref = folderHref.replace(/\.html$/, '');
   }
 
   // Extract tags - for Universal Editor they'll be in data attributes
-  const tags = block.dataset?.["cqTags"]
+  const tags = block.dataset?.cqTags
     || cfg?.cqtags
     || cfg?.cqTags
     || cfg?.tags
-    || cfg?.["cq-tags"]
-    || cfg?.["cq:tags"]
-    || "";
+    || cfg?.['cq-tags']
+    || cfg?.['cq:tags']
+    || '';
 
-  const cardsPerRow = readCardsPerRow(cfg, block);
+  const cardsPerRow = readCardsPerRow(cfg);
 
   const enableAddToCart = (() => {
-    const raw = coerceConfigScalar(cfg?.["enableaddtocartattileview"]);
-    return raw.toLowerCase() === "true";
+    const raw = coerceConfigScalar(cfg?.enableaddtocartattileview);
+    return raw.toLowerCase() === 'true';
   })();
 
-  const addToCartEventType = enableAddToCart ? (coerceConfigScalar(cfg?.["addtocarteventtype"])) : '';
+  const addToCartEventType = enableAddToCart ? (coerceConfigScalar(cfg?.addtocarteventtype)) : '';
 
   // Clear author table
-  block.innerHTML = "";
+  block.innerHTML = '';
 
   const allItems = await fetchProducts(folderHref);
   const categoryItems = filterByCategories(allItems, tags);
-  let items = categoryItems;
+  const items = categoryItems;
 
-  if (styleVariant === "carousel") {
+  if (styleVariant === 'carousel') {
     if (!items || items.length === 0) {
-      const empty = document.createElement("p");
-      empty.className = "cpl-empty";
-      empty.textContent = "No products found.";
+      const empty = document.createElement('p');
+      empty.className = 'cpl-empty';
+      empty.textContent = 'No products found.';
       block.append(empty);
       return;
     }
-    renderCarousel(block, items, cfg, isAuthor, redirectUrl);
+    renderCarousel(block, items, cfg, isAuthor, links);
     return;
   }
 
   renderHeader(block, tags);
 
-  const grid = document.createElement("div");
-  grid.className = "cpl-grid";
-  grid.style.setProperty("--cpl-columns", cardsPerRow);
+  const grid = document.createElement('div');
+  grid.className = 'cpl-grid';
+  grid.style.setProperty('--cpl-columns', cardsPerRow);
   block.append(grid);
 
   if (!items || items.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "cpl-empty";
-    empty.textContent = "No products found.";
+    const empty = document.createElement('p');
+    empty.className = 'cpl-empty';
+    empty.textContent = 'No products found.';
     grid.append(empty);
     return;
   }
 
   const cards = items.map((item) => (
-    buildCard(item, isAuthor, redirectUrl, enableAddToCart, addToCartEventType)
+    buildCard(item, isAuthor, links, enableAddToCart, addToCartEventType)
   ));
   grid.append(...cards);
 }

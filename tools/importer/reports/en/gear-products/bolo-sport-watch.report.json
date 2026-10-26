@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=24-WG01",
+  "path": "en/gear-products/bolo-sport-watch",
+  "timestamp": "2026-10-26T13:56:14.368Z",
+  "title": "Bolo Sport Watch",
+  "template": "product-page",
+  "productId": "24-WG01",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Affirm Water Bottle",
+  "relatedUnlinked": ""
+}

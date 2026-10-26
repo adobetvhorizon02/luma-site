@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=24-MG01",
+  "path": "en/gear-products/endurance-watch",
+  "timestamp": "2026-10-26T13:55:31.838Z",
+  "title": "Endurance Watch",
+  "template": "product-page",
+  "productId": "24-MG01",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Affirm Water Bottle, Bolo Sport Watch",
+  "relatedUnlinked": ""
+}

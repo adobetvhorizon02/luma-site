@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WG080",
+  "path": "en/yoga-products/sprite-yoga-companion-kit",
+  "timestamp": "2026-10-26T13:57:37.851Z",
+  "title": "Sprite Yoga Companion Kit",
+  "template": "product-page",
+  "productId": "WG080",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Summit Watch, Cruise Dual Analog Watch, Affirm Water Bottle",
+  "relatedUnlinked": ""
+}

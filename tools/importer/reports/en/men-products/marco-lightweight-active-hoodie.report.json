@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MH13",
+  "path": "en/men-products/marco-lightweight-active-hoodie",
+  "timestamp": "2026-10-26T13:54:04.814Z",
+  "title": "Marco Lightweight Active Hoodie",
+  "template": "product-page",
+  "productId": "MH13",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Hero Hoodie, Taurus Elements Shell, Aero Daily Fitness Tee, Tristan Endurance Tank",
+  "relatedUnlinked": ""
+}

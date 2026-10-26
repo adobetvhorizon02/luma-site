@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP02",
+  "path": "en/men-products/viktor-lumatech-pant",
+  "timestamp": "2026-10-26T13:54:28.842Z",
+  "title": "Viktor LumaTech™ Pant",
+  "template": "product-page",
+  "productId": "MP02",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Caesar Warm-Up Pant, Supernova Sport Pant, Orestes Yoga Pant, Aether Gym Pant, Cronus Yoga Pant",
+  "relatedUnlinked": ""
+}

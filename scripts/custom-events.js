@@ -1,7 +1,11 @@
 // ==========================================
 // Custom Events for Launch
-// Fires "page-view" when dataLayer is ready; dispatchCustomEvent(eventName) used by blocks (registration, sign-in, join-us, flight-search).
+// Fires "page-view" when dataLayer is ready; dispatchCustomEvent(eventName) used by blocks
+// (registration, sign-in, join-us, flight-search).
 // ==========================================
+
+// window._satellite (Launch) and window._dataLayer* (datalayer.js) are external names
+/* eslint-disable no-underscore-dangle */
 
 const LAUNCH_WAIT_TIMEOUT_MS = 10000;
 const LAUNCH_POLL_INTERVAL_MS = 50;
@@ -129,6 +133,17 @@ function waitAndFlushLaunchQueue(startTime = Date.now()) {
   setTimeout(() => waitAndFlushLaunchQueue(startTime), LAUNCH_POLL_INTERVAL_MS);
 }
 
+function clearProductUnlessProductIdInUrl() {
+  if (typeof window === 'undefined' || typeof window.location === 'undefined') return;
+  const params = new URLSearchParams(window.location.search || '');
+  if (params.has('productId')) return;
+  // static product pages carry the product id in their page metadata
+  if (document.querySelector('meta[name="productid"]')?.content) return;
+  if (typeof window.updateDataLayer === 'function') {
+    window.updateDataLayer({ product: {} }, false);
+  }
+}
+
 /**
  * Waits for dataLayer to be ready, then fires page-view on every page.
  */
@@ -162,15 +177,6 @@ function firePageViewWhenReady(startTime = Date.now()) {
   dispatchCustomEvent('page-view');
 }
 
-function clearProductUnlessProductIdInUrl() {
-  if (typeof window === 'undefined' || typeof window.location === 'undefined') return;
-  const params = new URLSearchParams(window.location.search || '');
-  if (params.has('productId')) return;
-  if (typeof window.updateDataLayer === 'function') {
-    window.updateDataLayer({ product: {} }, false);
-  }
-}
-
 export async function initializeCustomEvents() {
   try {
     waitAndFlushLaunchQueue();
@@ -179,6 +185,6 @@ export async function initializeCustomEvents() {
     });
     firePageViewWhenReady();
   } catch (error) {
-    console.error("Error initializing custom events:", error);
+    console.error('Error initializing custom events:', error);
   }
 }

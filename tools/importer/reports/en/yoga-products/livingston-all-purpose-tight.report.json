@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=MP09",
+  "path": "en/yoga-products/livingston-all-purpose-tight",
+  "timestamp": "2026-10-26T13:57:17.881Z",
+  "title": "Livingston All-Purpose Tight",
+  "template": "product-page",
+  "productId": "MP09",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Lono Yoga Short",
+  "relatedUnlinked": ""
+}

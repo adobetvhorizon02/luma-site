@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WJ11",
+  "path": "en/yoga-products/neve-studio-dance-jacket",
+  "timestamp": "2026-10-26T13:58:06.911Z",
+  "title": "Neve Studio Dance Jacket",
+  "template": "product-page",
+  "productId": "WJ11",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Geo Insulated Jogging Pant, Kratos Gym Pant, Thorpe Track Pant, Zeppelin Yoga Pant, Livingston All-Purpose Tight",
+  "relatedUnlinked": ""
+}

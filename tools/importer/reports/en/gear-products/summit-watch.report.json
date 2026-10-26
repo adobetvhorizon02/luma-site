@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=24-MG03",
+  "path": "en/gear-products/summit-watch",
+  "timestamp": "2026-10-26T13:55:51.858Z",
+  "title": "Summit Watch",
+  "template": "product-page",
+  "productId": "24-MG03",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Endurance Watch, Dash Digital Watch, Cruise Dual Analog Watch, Affirm Water Bottle, Bolo Sport Watch",
+  "relatedUnlinked": ""
+}

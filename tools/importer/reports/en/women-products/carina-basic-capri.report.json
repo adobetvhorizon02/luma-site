@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://main--luma-site-14-08--livedemoservices.aem.live/en/product?productId=WP09",
+  "path": "en/women-products/carina-basic-capri",
+  "timestamp": "2026-10-26T13:53:04.718Z",
+  "title": "Carina Basic Capri",
+  "template": "product-page",
+  "productId": "WP09",
+  "blocks": [
+    "product-detail-static"
+  ],
+  "related": "Ana Running Short, Cora Parachute Pant, Aeon Capri, Bardot Capri, Daria Bikram Pant",
+  "relatedUnlinked": ""
+}
